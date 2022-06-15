@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="challengestyle.css"/>
+</head>
+<body>
+<h1 id="grad">JS Code Challenge #2</h1>
+<h2>2. Print a table containing multiplication tables</h2>
+<p>Let's start with the tables that many of us had to memorize in school. Can you print a table that contains all the answers to the multiplication tables from 1 through 10?</p>
+<h3>Output:</h2>
+<pre id="output">Output goes here (replace via script)</pre>
+<h3>Code:</h2>
+<pre id="code">
+var output='&lt;table>'; //the HTML output to put in "output"
+
+var max_number=10; //the maximum number to build multiplicaion tables to
+for(var i=1;i<=max_number;i++) //rows
+{
+	output=output+"&lt;tr>";
+	for(var n=1;n<=max_number;n++) //columns
+	{
+		output=output+'&lt;td style="border: 1px solid black;">'+i*n+"&lt;/td>"; //create a bordered cell
+	}
+	output=output+"&lt;/tr>";
+}
+
+output+="&lt;/table>"; //close the table in output
+
+document.getElementById("output").innerHTML=output; //send output to the output tab</pre>
+<script>
+var output='<table>'; //the HTML output to put in "output"
+
+var max_number=10; //the maximum number to build multiplicaion tables to
+for(var i=1;i<=max_number;i++) //rows
+{
+	output=output+"<tr>";
+	for(var n=1;n<=max_number;n++) //columns
+	{
+		output=output+'<td style="border: 1px solid black;">'+i*n+"</td>"; //create a bordered cell
+	}
+	output=output+"</tr>";
+}
+
+output+="</table>"; //close the table in output
+
+document.getElementById("output").innerHTML=output; //send output to the output tab
+</script>
+</body>
+</html>
