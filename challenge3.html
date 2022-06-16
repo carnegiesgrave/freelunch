@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="challengestyle.css"/>
+</head>
+<body>
+<h1 id="grad">JS Code Challenge #3</h1>
+<h2>Create a length converter function</h2>
+<p>Creating a function is a skill that'll be useful in many settings, and as you progress, you'll be working on much more complicated functions than this one. But a function that converts units of measure can be pretty handy in multiple professions and industries.
+
+Let's start with a conversion from kilometers to miles. The function should include the input in kilometers and return the answer in miles.</p>
+<h3>Output:</h2>
+<pre id="output">Output goes here (replace via script)</pre>
+<h3>Code:</h2>
+<pre id="code">
+var output=''; //the HTML output to put in "output"
+
+//the string containing the form to add to output
+var form_string='&lt;form id="converter">&lt;label for="km">Kilometers: &lt;/label>&lt;input type="text" id="km">&lt;/input> &lt;button type="button" onclick="convert();">Convert&lt;/button>&lt;/form>';
+var result_string=''; //the string containing the results of the conversion
+
+output=form_string; //put the form on the page to start with
+
+//function that converts kilometers to miles then sets result_string equal to the result
+function convert() {
+	var kilometers=document.getElementById('km').value; //set kilometers equal to the input field's value
+	if (kilometers=="") {
+		result_string="Please enter a length in kilometers before pressing 'Convert.'"; //error if field left empty
+	}
+	else if (isNaN(kilometers))
+	{
+		result_string="Entered value must be a number."; //error if field does not contain a number
+	}
+	else {
+		var miles=kilometers*0.62137119; //convert from kilometers to miles and store the result in a variable
+		result_string=kilometers+" kilometers is equal to "+miles+" miles."; //print the result to result_string
+	}
+	
+	output=form_string+"&lt;br>"+result_string; //add the result string to the output
+	document.getElementById("output").innerHTML=output; //send output to the output tab
+}
+
+document.getElementById("output").innerHTML=output; //send output to the output tab
+</pre>
+<script>
+var output=''; //the HTML output to put in "output"
+
+//the string containing the form to add to output
+var form_string='<form id="converter"><label for="km">Kilometers: </label><input type="text" id="km"></input> <button type="button" onclick="convert();">Convert</button></form>';
+var result_string=''; //the string containing the results of the conversion
+
+output=form_string; //put the form on the page to start with
+
+//function that converts kilometers to miles then sets result_string equal to the result
+function convert() {
+	var kilometers=document.getElementById('km').value; //set kilometers equal to the input field's value
+	if (kilometers=="") {
+		result_string="Please enter a length in kilometers before pressing 'Convert.'"; //error if field left empty
+	}
+	else if (isNaN(kilometers))
+	{
+		result_string="Entered value must be a number."; //error if field does not contain a number
+	}
+	else {
+		var miles=kilometers*0.62137119; //convert from kilometers to miles and store the result in a variable
+		result_string=kilometers+" kilometers is equal to "+miles+" miles."; //print the result to result_string
+	}
+	
+	output=form_string+"<br>"+result_string; //add the result string to the output
+	document.getElementById("output").innerHTML=output; //send output to the output tab
+}
+
+document.getElementById("output").innerHTML=output; //send output to the output tab
+</script>
+</body>
+</html>
