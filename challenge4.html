@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="challengestyle.css"/>
+</head>
+<body>
+<h1 id="grad">JS Code Challenge #4</h1>
+<h2>Calculate the sum of numbers within an array</h2>
+<p>You can create your own array of numbers but consider trying this problem with a few different sets to verify your solution. Have one array with negative and positive numbers and another with integers and decimals.
+
+You could also try using arrays of different lengths. </p>
+<h3>Output:</h2>
+<pre id="output">Output goes here (replace via script)</pre>
+<h3>Code:</h2>
+<pre id="code">
+var output=''; //the HTML output to put in "output"
+
+//define arrays to be summed
+var arr_1 = [1,4,9];
+var arr_2 = [4,99,-200,300]
+
+//function that prints array indices separated by commas
+function print_array(arr) {
+	let str="";
+	for(let i=0;i&lt;arr.length;i++) {
+		str+=arr[i];
+		if (i&lt;arr.length-1) {
+			str+=", "; 
+		}
+	}
+	return str;
+}
+
+//function that sums an array and then returns the result
+function sum_array(arr) {
+	var sum=0;
+	for(let i=0;i&lt;arr.length;i++) {
+		sum+=arr[i];
+	}
+	return sum;
+}
+
+output+="Sum of "+print_array(arr_1)+": "+sum_array(arr_1)+"&lt;br>";
+output+="Sum of "+print_array(arr_2)+": "+sum_array(arr_2);
+
+document.getElementById("output").innerHTML=output; //send output to the output tab
+</pre>
+<script>
+var output=''; //the HTML output to put in "output"
+
+//define arrays to be summed
+var arr_1 = [1,4,9];
+var arr_2 = [4,99,-200,300]
+
+//function that prints array indices separated by commas
+function print_array(arr) {
+	let str="";
+	for(let i=0;i<arr.length;i++) {
+		str+=arr[i];
+		if (i<arr.length-1) {
+			str+=", "; 
+		}
+	}
+	return str;
+}
+
+//function that sums an array and then returns the result
+function sum_array(arr) {
+	var sum=0;
+	for(let i=0;i<arr.length;i++) {
+		sum+=arr[i];
+	}
+	return sum;
+}
+
+output+="Sum of "+print_array(arr_1)+": "+sum_array(arr_1)+"<br>";
+output+="Sum of "+print_array(arr_2)+": "+sum_array(arr_2);
+
+document.getElementById("output").innerHTML=output; //send output to the output tab
+</script>
+</body>
+</html>

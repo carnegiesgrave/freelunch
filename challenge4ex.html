@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="challengestyle.css"/>
+</head>
+<body>
+<h1 id="grad">JS Code Challenge #4 EX</h1>
+<h2>Calculate the sum of numbers within an array (Intermediate bonus challenge)</h2>
+<p>Bonus intermediate challenge: Create a function that can return the sum of a particular column or row number in a table.</p>
+<h3>Output:</h2>
+<pre id="output">Output goes here (replace via script)</pre>
+<h3>Code:</h2>
+<pre id="code">
+var output=''; //the HTML output to put in "output"
+
+output+='&lt;table id="grid">&lt;tr>&lt;td>35&lt;/td>&lt;td>99&lt;/td>&lt;td>2&lt;/td>&lt;/tr>&lt;tr>&lt;td>4&lt;/td>&lt;td>44&lt;/td>&lt;td>-8&lt;/td>&lt;/tr>&lt;tr>&lt;td>8&lt;/td>&lt;td>-10&lt;/td>&lt;td>51&lt;/td>&lt;/tr>&lt;/table>';
+
+function row_to_array(table_id,row_num)
+{
+	let table=document.getElementById(table_id); //get the table by its ID
+	let table_row=table.getElementsByTagName("tr")[row_num]; //get the specified row on the table
+	let table_cells=table_row.getElementsByTagName("td"); //get an array of cells from the row
+	let arr=new Array(table_cells.length); //create a new array with the length of the cells
+	for(let i=0;i&lt;table_cells.length;i++) //loop through the cells in the specified row
+	{
+		arr[i]=Number(table_cells[i].innerText); //fill the new array's indices with the innerText of each cell in the row (converted to Number)
+	}
+	return arr; //return the new array
+}
+
+function column_to_array(table_id,column_num)
+{
+	let table=document.getElementById(table_id); //get the table by its ID
+	let table_rows=table.getElementsByTagName("tr"); //get all rows on the table
+	let arr=new Array(table_rows.length); //create a new array with the length of the row
+	for(let i=0;i&lt;table_rows.length;i++) //loop through the rows in the table
+	{
+		arr[i]=Number(table_rows[i].getElementsByTagName("td")[column_num].innerText); //fill the new array's indices with the innerText of each cell in the column (converted to Number)
+	}
+	return arr; //return the new array
+}
+
+//function that sums an array and then returns the result
+function sum_array(arr) {
+	var sum=0;
+	for(let i=0;i&lt;arr.length;i++) {
+		sum+=arr[i];
+	}
+	return sum;
+}
+
+document.getElementById("output").innerHTML=output; //send initial output (only the table) to the output tab
+
+output+="&lt;br>Sum of row index 0: "+sum_array(row_to_array("grid",0));
+output+="&lt;br>Sum of row index 1: "+sum_array(row_to_array("grid",1));
+output+="&lt;br>Sum of row index 2: "+sum_array(row_to_array("grid",2));
+output+="&lt;br>&lt;br>Sum of column index 0: "+sum_array(column_to_array("grid",0));
+output+="&lt;br>Sum of column index 1: "+sum_array(column_to_array("grid",1));
+output+="&lt;br>Sum of column index 2: "+sum_array(column_to_array("grid",2));
+
+document.getElementById("output").innerHTML=output; //send final output (after array computations) to the output tab
+</pre>
+<script>
+var output=''; //the HTML output to put in "output"
+
+output+='<table id="grid"><tr><td>35</td><td>99</td><td>2</td></tr><tr><td>4</td><td>44</td><td>-8</td></tr><tr><td>8</td><td>-10</td><td>51</td></tr></table>';
+
+function row_to_array(table_id,row_num)
+{
+	let table=document.getElementById(table_id); //get the table by its ID
+	let table_row=table.getElementsByTagName("tr")[row_num]; //get the specified row on the table
+	let table_cells=table_row.getElementsByTagName("td"); //get an array of cells from the row
+	let arr=new Array(table_cells.length); //create a new array with the length of the cells
+	for(let i=0;i<table_cells.length;i++) //loop through the cells in the specified row
+	{
+		arr[i]=Number(table_cells[i].innerText); //fill the new array's indices with the innerText of each cell in the row (converted to Number)
+	}
+	return arr; //return the new array
+}
+
+function column_to_array(table_id,column_num)
+{
+	let table=document.getElementById(table_id); //get the table by its ID
+	let table_rows=table.getElementsByTagName("tr"); //get all rows on the table
+	let arr=new Array(table_rows.length); //create a new array with the length of the row
+	for(let i=0;i<table_rows.length;i++) //loop through the rows in the table
+	{
+		arr[i]=Number(table_rows[i].getElementsByTagName("td")[column_num].innerText); //fill the new array's indices with the innerText of each cell in the column (converted to Number)
+	}
+	return arr; //return the new array
+}
+
+//function that sums an array and then returns the result
+function sum_array(arr) {
+	var sum=0;
+	for(let i=0;i<arr.length;i++) {
+		sum+=arr[i];
+	}
+	return sum;
+}
+
+document.getElementById("output").innerHTML=output; //send initial output (only the table) to the output tab
+
+output+="<br>Sum of row index 0: "+sum_array(row_to_array("grid",0));
+output+="<br>Sum of row index 1: "+sum_array(row_to_array("grid",1));
+output+="<br>Sum of row index 2: "+sum_array(row_to_array("grid",2));
+output+="<br><br>Sum of column index 0: "+sum_array(column_to_array("grid",0));
+output+="<br>Sum of column index 1: "+sum_array(column_to_array("grid",1));
+output+="<br>Sum of column index 2: "+sum_array(column_to_array("grid",2));
+
+document.getElementById("output").innerHTML=output; //send final output (after array computations) to the output tab
+</script>
+</body>
+</html>
